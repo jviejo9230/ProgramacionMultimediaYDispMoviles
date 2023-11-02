@@ -11,7 +11,13 @@ export class RestaurantesService {
     return [...this.restaurantes]
   }
 
-  getRestaurante(){}
+  getRestaurante(restauranteID: string){
+    return{
+      ...this.restaurantes.find(restaurante => {
+        return restaurante.id==restauranteID
+      })
+    }
+  }
 
   addRestaurante(){}
 
