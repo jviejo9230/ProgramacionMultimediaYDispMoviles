@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RestaurantesService } from './restaurantes.service';
+import {restaurante} from './restaurantes.model';
 
 @Component({
   selector: 'app-restaurantes',
@@ -7,20 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantesPage implements OnInit {
 
-  private titulo="Restaurantes"
-  private restaurantes =[
-    {
-      id: '1',
-      title: 'El Celler de Can Roca',
-      imageURL: 'http://comercioymarketing.es/wp-content/uploads/2016/11/can-roca-logo.png',
-      comments: ['aaa']
-    }
-  ]
+  titulo: string ="Restaurantes"
+  restaurantes: restaurante[]=[];
 
 
-  constructor() { }
+  constructor(private restauranteService : RestaurantesService) { }
 
   ngOnInit() {
+    this.restaurantes=this.restauranteService.getRestaurantes();
   }
-
 }

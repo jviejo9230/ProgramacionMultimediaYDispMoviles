@@ -8,12 +8,22 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'restaurantes',
     pathMatch: 'full'
   },
   {
     path: 'restaurantes',
-    loadChildren: () => import('./restaurantes/restaurantes.module').then( m => m.RestaurantesPageModule)
+    children:
+    [
+    {
+      path: "",
+      loadChildren: () => import('./restaurantes/restaurantes.module').then( m => m.RestaurantesPageModule)
+    },
+    {
+      path: ":restauranteID",
+      loadChildren: () => import('./restaurantes/restaurante-detail/restaurante-detail.module').then( m => m.RestauranteDetailPageModule)
+    }
+  ]
   },
 ];
 

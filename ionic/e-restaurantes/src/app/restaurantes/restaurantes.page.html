@@ -6,14 +6,18 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let restaurante of restaurantes" [routerLink]="['/restaurantes', restauranteID]">
+    <ion-item *ngFor="let restaurante of restaurantes" [routerLink]="['/restaurantes', restaurante.id]">
       <ion-avatar slot="start">
         <ion-img [src]="restaurante.imageURL"></ion-img>
       </ion-avatar>   
       <ion-label>
         {{restaurante.title}}
       </ion-label>
-
+      <ion-avatar slot="end">
+        <ion-label>
+          <ion-img [src]="restaurante.tenedores" style="height: 5vh; max-width: 5vh; float: right;"></ion-img>
+        </ion-label>
+      </ion-avatar>
     </ion-item>
   </ion-list>
 </ion-content>
