@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/list-contacts"></ion-back-button>
+    </ion-button>
+    <ion-title>{{contact.first_name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="contact.avatar"></ion-img> 
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">{{contact.first_name}}&nbsp;{{contact.last_name}}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+        <h4 class="ion-text-center"> <a href="mailto:{{contact.email}}" target="_blank"> {{contact.email}}</a></h4>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
